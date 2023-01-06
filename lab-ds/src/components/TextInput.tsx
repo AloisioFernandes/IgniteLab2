@@ -1,3 +1,4 @@
+import { Slot } from '@radix-ui/react-slot';
 import { InputHTMLAttributes, ReactNode } from 'react';
 
 export interface TextInputRootProps {
@@ -12,7 +13,21 @@ function TextInputRoot(props: TextInputRootProps) {
   )
 }
 
-function TextInputIcon() {}
+TextInputRoot.displayName = 'TextInput.Root'
+
+export interface TextInputIconProps {
+  children: ReactNode;
+}
+
+function TextInputIcon(props: TextInputIconProps) {
+  return(
+    <Slot className='w-6 h-6 text-gray-400'>
+      {props.children}
+    </Slot>
+  )
+}
+
+TextInputIcon.displayName = 'TextInput.Icon'
 
 export interface TextInputInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
@@ -25,7 +40,10 @@ function TextInputInput(props: TextInputInputProps) {
   )
 }
 
+TextInputInput.displayName = 'TextInput.Input'
+
 export const TextInput = {
   Root: TextInputRoot,
   Input: TextInputInput,
+  Icon: TextInputIcon,
 }
