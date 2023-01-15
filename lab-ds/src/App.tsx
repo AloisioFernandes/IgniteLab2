@@ -1,4 +1,4 @@
-import { Envelope } from 'phosphor-react'
+import { Envelope, Lock } from 'phosphor-react'
 import { Heading } from './components/Heading'
 import { Text } from './components/Text'
 import { TextInput } from './components/TextInput'
@@ -20,7 +20,7 @@ export function App() {
         </Text>
       </header>
 
-      <form className="flex flex-col items-stretch w-full max-w-sm">
+      <form className="flex flex-col gap-4 items-stretch w-full max-w-sm mt-10">
         <label htmlFor="email" className="flex flex-col gap-3">
           <Text className="font-semibold">Endereço de e-mail</Text>
           <TextInput.Root>
@@ -28,7 +28,18 @@ export function App() {
               <Envelope />
             </TextInput.Icon>
 
-            <TextInput.Input placeholder='Digite seu e-mail' />
+            <TextInput.Input type="email" id="email" placeholder='Digite seu e-mail' />
+          </TextInput.Root>
+        </label>
+
+        <label htmlFor="password" className="flex flex-col gap-3">
+          <Text className="font-semibold">Sua senha</Text>
+          <TextInput.Root>
+            <TextInput.Icon>
+              <Lock />
+            </TextInput.Icon>
+
+            <TextInput.Input type="password" id="password" placeholder='******' />
           </TextInput.Root>
         </label>
       </form>
