@@ -7,7 +7,12 @@ export default {
   title: 'Pages/SignIn',
   component: SignIn,
   args: {},
-  argTypes: {}
+  argTypes: {},
+  parameters: {
+    msw: {
+      handlers: []
+    },
+  }
 } as Meta
 
 export const Default: StoryObj = {
